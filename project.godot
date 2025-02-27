@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="JameplayJam"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 MessageBus="*res://autoload/message_bus.gd"
+Scenes="*res://autoload/scenes.gd"
 
 [rendering]
 

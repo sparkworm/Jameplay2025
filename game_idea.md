@@ -11,4 +11,3 @@ Potential genres of game:
   - strategy
   - puzzle
   - bullet hell?
-
