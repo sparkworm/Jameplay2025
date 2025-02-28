@@ -18,6 +18,15 @@ Potential genres of game:
 
 ##########
 
+BREAKOUT-LIKE game idea
+	like breakout, but with flexible borders
+
+Similarly to breakout, there is a ball and tiles that the ball may damage and destroy.  However, 
+unlike breakout, the player controlls the walls of a rectangle which keeps the ball inside.  Thus, 
+the player cannot loose, so the game becomes one about high score.
+
+##########
+
 MANPOWER game idea
 	A war game with a simple economy
 
