@@ -1,5 +1,5 @@
-## Global script meant to hold references to all loadable game scenes, such as
-## levels, the main menu, and the credis.
+## Global script meant to hold references to all loadable game scenes, such as levels, the main
+## menu, and the credis.
 extends Node
 
 enum ID {

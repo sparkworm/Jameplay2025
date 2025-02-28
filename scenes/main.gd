@@ -37,7 +37,6 @@ func load_scene(scene_name: Scenes.ID) -> void:
 	# set active_scene to be a reference to this new active scene
 	active_scene = new_scene
 
-## Function for quitting the game.  May eventually have functionality such as
-## saving progress
+## Function for quitting the game.  May eventually have functionality such as saving progress
 func quit_game() -> void:
 	get_tree().quit()
