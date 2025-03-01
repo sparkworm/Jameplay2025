@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckmux2bssru4s"]
+
+[ext_resource type="Texture2D" uid="uid://b5iqxxgcqj7rd" path="res://visuals/particles/pixel.png" id="1_fgvfl"]
+[ext_resource type="Shader" path="res://visuals/shaders/player_barrier.gdshader" id="2_tjch7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kekji"]
+size = Vector2(12, 200)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bwf3j"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 100, 1)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 0.0
+initial_velocity_min = 593.6
+initial_velocity_max = 818.94
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gfqv0"]
+shader = ExtResource("2_tjch7")
+shader_parameter/radius = 0.2
+
+[node name="PlayerBarrier" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_kekji")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+scale = Vector2(0.065052, 0.899823)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_bwf3j")
+texture = ExtResource("1_fgvfl")
+
+[node name="Pixel" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_gfqv0")
+scale = Vector2(10.8893, 197.448)
+texture = ExtResource("1_fgvfl")
