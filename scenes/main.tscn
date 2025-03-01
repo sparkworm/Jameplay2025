@@ -4,5 +4,6 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_p6157")
+starting_scene = 3
 
 [node name="ActiveSceneParent" type="Node" parent="."]
