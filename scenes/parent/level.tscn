@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://pctjl8fyl8tl"]
+[gd_scene load_steps=3 format=3 uid="uid://pctjl8fyl8tl"]
 
 [ext_resource type="Script" path="res://scenes/parent/level.gd" id="1_8rtop"]
+[ext_resource type="PackedScene" uid="uid://81jofg5uucy4" path="res://scenes/actors/ball.tscn" id="2_kc4jg"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rtop")
+
+[node name="Ball" parent="." instance=ExtResource("2_kc4jg")]
+
+[node name="Tiles" type="TileMapLayer" parent="."]
