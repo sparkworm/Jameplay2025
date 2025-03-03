@@ -1,7 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://pctjl8fyl8tl"]
+[gd_scene load_steps=6 format=3 uid="uid://pctjl8fyl8tl"]
 
 [ext_resource type="Script" path="res://scenes/parent/level.gd" id="1_8rtop"]
 [ext_resource type="PackedScene" uid="uid://81jofg5uucy4" path="res://scenes/actors/ball.tscn" id="2_kc4jg"]
+[ext_resource type="Texture2D" uid="uid://duhvq1vl862c5" path="res://visuals/tliemaps/tiles.png" id="3_ssw8j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1dqq"]
+texture = ExtResource("3_ssw8j")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSet" id="TileSet_dxrvn"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_f1dqq")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rtop")
@@ -9,6 +31,7 @@ script = ExtResource("1_8rtop")
 [node name="Ball" parent="." instance=ExtResource("2_kc4jg")]
 
 [node name="Tiles" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_dxrvn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
