@@ -10,9 +10,6 @@ var tile_levels: Array = [
 		Vector2i(5,0),
 ]
 
-func _ready() -> void:
-	demote_tile(Vector2i(0,0))
-
 func demote_tile(coords:Vector2i) -> void:
 	var level:int = tile_levels.find(get_cell_atlas_coords(coords))
 	if level == -1:
