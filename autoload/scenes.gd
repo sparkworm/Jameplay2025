@@ -10,5 +10,6 @@ enum ID {
 }
 
 var scenes: Dictionary = {
-	#Names.MAIN_MENU : preload()
+	#ID.MAIN_MENU : preload()
+	ID.TEST : preload("res://scenes/levels/test_level.tscn")
 }

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://pctjl8fyl8tl"]
+[gd_scene load_steps=10 format=3 uid="uid://pctjl8fyl8tl"]
 
 [ext_resource type="Script" path="res://scenes/parent/level.gd" id="1_8rtop"]
 [ext_resource type="PackedScene" uid="uid://81jofg5uucy4" path="res://scenes/actors/ball.tscn" id="2_kc4jg"]
+[ext_resource type="PackedScene" uid="uid://ckmux2bssru4s" path="res://scenes/actors/player_barrier.tscn" id="2_ylqw7"]
 [ext_resource type="Texture2D" uid="uid://duhvq1vl862c5" path="res://visuals/tliemaps/tiles.png" id="3_ssw8j"]
 [ext_resource type="Script" path="res://scenes/actors/tiles.gd" id="4_vucop"]
 
@@ -34,6 +35,7 @@ size = Vector2(20, 36.6745)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rtop")
+barrier = ExtResource("2_ylqw7")
 
 [node name="Ball" parent="." instance=ExtResource("2_kc4jg")]
 
@@ -75,3 +77,5 @@ rotation = 1.57079
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D4"]
 scale = Vector2(1, 16.96)
 shape = SubResource("RectangleShape2D_6thdq")
+
+[node name="PlayerBarriers" type="Node" parent="."]

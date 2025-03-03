@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckmux2bssru4s"]
+[gd_scene load_steps=15 format=3 uid="uid://ckmux2bssru4s"]
 
 [ext_resource type="Texture2D" uid="uid://b5iqxxgcqj7rd" path="res://visuals/particles/pixel.png" id="1_fgvfl"]
+[ext_resource type="Script" path="res://scenes/actors/player_barrier.gd" id="1_n8cwa"]
 [ext_resource type="Shader" path="res://visuals/shaders/player_barrier.gdshader" id="2_tjch7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kekji"]
-size = Vector2(12, 200)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pybg4"]
+radius = 4.0
+height = 112.0
 
 [sub_resource type="Curve" id="Curve_jihqg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.84, 0.835165), -0.5994, -0.5994, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -41,7 +43,7 @@ curve_z = SubResource("Curve_6dlex")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bwf3j"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(1, 100, 1)
+emission_box_extents = Vector3(1, 50, 1)
 angle_min = 1.07288e-05
 angle_max = 1.07288e-05
 spread = 0.0
@@ -61,17 +63,21 @@ hue_variation_min = -0.1
 hue_variation_max = -2.23517e-08
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfqv0"]
+resource_local_to_scene = true
 shader = ExtResource("2_tjch7")
 shader_parameter/radius = 0.2
+shader_parameter/enabled = true
 
 [node name="PlayerBarrier" type="CharacterBody2D"]
+script = ExtResource("1_n8cwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("RectangleShape2D_kekji")
+shape = SubResource("CapsuleShape2D_pybg4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 20
+emitting = false
+amount = 15
 process_material = SubResource("ParticleProcessMaterial_bwf3j")
 texture = ExtResource("1_fgvfl")
 local_coords = true
@@ -80,5 +86,6 @@ trail_lifetime = 0.1
 
 [node name="Pixel" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_gfqv0")
-scale = Vector2(10.8893, 197.448)
+position = Vector2(0, -0.137989)
+scale = Vector2(10.8893, 133.724)
 texture = ExtResource("1_fgvfl")
