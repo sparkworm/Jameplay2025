@@ -1,6 +1,8 @@
 class_name Ball
 extends CharacterBody2D
 
+signal ball_collided(col: KinematicCollision2D)
+
 @export var speed: float = 5
 
 func _ready() -> void:
@@ -14,3 +16,8 @@ func _physics_process(_delta: float) -> void:
 ## Changes direction after collision
 func bounce(col: KinematicCollision2D) -> void:
 	velocity = velocity.bounce(col.get_normal())
+	if col.get_collider() is Tiles:
+		print("tilemap hit")
+		var tilemap = col.get_collider() as Tiles
+		var coords:Vector2i = tilemap.get_coords_for_body_rid(col.get_collider_rid())
+		tilemap.demote_tile(coords)

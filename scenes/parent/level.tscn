@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://pctjl8fyl8tl"]
+[gd_scene load_steps=7 format=3 uid="uid://pctjl8fyl8tl"]
 
 [ext_resource type="Script" path="res://scenes/parent/level.gd" id="1_8rtop"]
 [ext_resource type="PackedScene" uid="uid://81jofg5uucy4" path="res://scenes/actors/ball.tscn" id="2_kc4jg"]
 [ext_resource type="Texture2D" uid="uid://duhvq1vl862c5" path="res://visuals/tliemaps/tiles.png" id="3_ssw8j"]
+[ext_resource type="Script" path="res://scenes/actors/tiles.gd" id="4_vucop"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1dqq"]
 texture = ExtResource("3_ssw8j")
@@ -32,6 +33,7 @@ script = ExtResource("1_8rtop")
 
 [node name="Tiles" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_dxrvn")
+script = ExtResource("4_vucop")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
