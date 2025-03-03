@@ -44,32 +44,34 @@ script = ExtResource("4_vucop")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="WallBarriers" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBarriers"]
 position = Vector2(-299, -2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D"]
 scale = Vector2(1, 16.96)
 shape = SubResource("RectangleShape2D_1pn3d")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallBarriers"]
 position = Vector2(299, -1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D2"]
 scale = Vector2(1, 16.96)
 shape = SubResource("RectangleShape2D_1pn3d")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="WallBarriers"]
 position = Vector2(-1, -173)
 rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D3"]
 scale = Vector2(1, 16.96)
 shape = SubResource("RectangleShape2D_6thdq")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="WallBarriers"]
 position = Vector2(-2, 172)
 rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D4"]
 scale = Vector2(1, 16.96)
 shape = SubResource("RectangleShape2D_6thdq")
