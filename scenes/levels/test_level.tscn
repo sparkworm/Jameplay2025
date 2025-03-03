@@ -9,9 +9,7 @@ size = Vector2(26, 26)
 
 [node name="TestLevel" instance=ExtResource("1_ftd6k")]
 
-[node name="Camera2D" type="Camera2D" parent="." index="0"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
 position = Vector2(-16, -28)
 rotation = -0.538976
 
@@ -49,7 +47,7 @@ rotation = 1.57079
 scale = Vector2(0.0246429, 0.0766667)
 texture = ExtResource("3_4fnhy")
 
-[node name="PlayerBarrier" parent="." index="4" instance=ExtResource("3_ur3ym")]
+[node name="PlayerBarrier" parent="." index="3" instance=ExtResource("3_ur3ym")]
 position = Vector2(68, 10)
 rotation = 3.20179
 scale = Vector2(0.352484, 0.526579)
