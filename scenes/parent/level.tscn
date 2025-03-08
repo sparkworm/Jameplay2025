@@ -1,11 +1,81 @@
-[gd_scene load_steps=3 format=3 uid="uid://pctjl8fyl8tl"]
+[gd_scene load_steps=10 format=3 uid="uid://pctjl8fyl8tl"]
 
 [ext_resource type="Script" path="res://scenes/parent/level.gd" id="1_8rtop"]
 [ext_resource type="PackedScene" uid="uid://81jofg5uucy4" path="res://scenes/actors/ball.tscn" id="2_kc4jg"]
+[ext_resource type="PackedScene" uid="uid://ckmux2bssru4s" path="res://scenes/actors/player_barrier.tscn" id="2_ylqw7"]
+[ext_resource type="Texture2D" uid="uid://duhvq1vl862c5" path="res://visuals/tliemaps/tiles.png" id="3_ssw8j"]
+[ext_resource type="Script" path="res://scenes/actors/tiles.gd" id="4_vucop"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1dqq"]
+texture = ExtResource("3_ssw8j")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSet" id="TileSet_dxrvn"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_f1dqq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pn3d"]
+size = Vector2(20, 19.5165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6thdq"]
+size = Vector2(20, 36.6745)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8rtop")
+barrier = ExtResource("2_ylqw7")
 
 [node name="Ball" parent="." instance=ExtResource("2_kc4jg")]
 
 [node name="Tiles" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_dxrvn")
+script = ExtResource("4_vucop")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="WallBarriers" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallBarriers"]
+position = Vector2(-299, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D"]
+scale = Vector2(1, 16.96)
+shape = SubResource("RectangleShape2D_1pn3d")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="WallBarriers"]
+position = Vector2(299, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D2"]
+scale = Vector2(1, 16.96)
+shape = SubResource("RectangleShape2D_1pn3d")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="WallBarriers"]
+position = Vector2(-1, -173)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D3"]
+scale = Vector2(1, 16.96)
+shape = SubResource("RectangleShape2D_6thdq")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="WallBarriers"]
+position = Vector2(-2, 172)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallBarriers/StaticBody2D4"]
+scale = Vector2(1, 16.96)
+shape = SubResource("RectangleShape2D_6thdq")
+
+[node name="PlayerBarriers" type="Node" parent="."]

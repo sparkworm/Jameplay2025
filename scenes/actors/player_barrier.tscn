@@ -1,39 +1,91 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckmux2bssru4s"]
+[gd_scene load_steps=15 format=3 uid="uid://ckmux2bssru4s"]
 
 [ext_resource type="Texture2D" uid="uid://b5iqxxgcqj7rd" path="res://visuals/particles/pixel.png" id="1_fgvfl"]
+[ext_resource type="Script" path="res://scenes/actors/player_barrier.gd" id="1_n8cwa"]
 [ext_resource type="Shader" path="res://visuals/shaders/player_barrier.gdshader" id="2_tjch7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kekji"]
-size = Vector2(12, 200)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pybg4"]
+radius = 4.0
+height = 112.0
+
+[sub_resource type="Curve" id="Curve_jihqg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.84, 0.835165), -0.5994, -0.5994, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x5j1y"]
+curve = SubResource("Curve_jihqg")
+
+[sub_resource type="Curve" id="Curve_4tida"]
+max_value = 1000.0
+_data = [Vector2(0, 197.802), 0.0, 0.0, 0, 0, Vector2(0.818182, 131.868), -40.2931, -40.2931, 0, 0, Vector2(1, 0), -442.241, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_w67r5"]
+curve_x = SubResource("Curve_4tida")
+
+[sub_resource type="Curve" id="Curve_nvety"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_dyfwj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_6dlex"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_sumkt"]
+curve_x = SubResource("Curve_nvety")
+curve_y = SubResource("Curve_dyfwj")
+curve_z = SubResource("Curve_6dlex")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bwf3j"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(1, 100, 1)
+emission_box_extents = Vector3(1, 50, 1)
 angle_min = 1.07288e-05
 angle_max = 1.07288e-05
 spread = 0.0
-initial_velocity_min = 593.6
-initial_velocity_max = 818.94
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+directional_velocity_min = 0.999984
+directional_velocity_max = 0.999984
+directional_velocity_curve = SubResource("CurveXYZTexture_w67r5")
 gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveXYZTexture_sumkt")
+alpha_curve = SubResource("CurveTexture_x5j1y")
+hue_variation_min = -0.1
+hue_variation_max = -2.23517e-08
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfqv0"]
+resource_local_to_scene = true
 shader = ExtResource("2_tjch7")
 shader_parameter/radius = 0.2
+shader_parameter/enabled = true
 
 [node name="PlayerBarrier" type="CharacterBody2D"]
+script = ExtResource("1_n8cwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource("RectangleShape2D_kekji")
+shape = SubResource("CapsuleShape2D_pybg4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-scale = Vector2(0.065052, 0.899823)
-amount = 20
+emitting = false
+amount = 15
 process_material = SubResource("ParticleProcessMaterial_bwf3j")
 texture = ExtResource("1_fgvfl")
+local_coords = true
+trail_enabled = true
+trail_lifetime = 0.1
 
 [node name="Pixel" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_gfqv0")
-scale = Vector2(10.8893, 197.448)
+position = Vector2(0, -0.137989)
+scale = Vector2(10.8893, 133.724)
 texture = ExtResource("1_fgvfl")
