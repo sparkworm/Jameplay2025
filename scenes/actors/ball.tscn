@@ -1,11 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://81jofg5uucy4"]
+[gd_scene load_steps=5 format=3 uid="uid://81jofg5uucy4"]
 
 [ext_resource type="Script" path="res://scenes/actors/ball.gd" id="1_m8x88"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_brrcd"]
+radius = 6.0
+
+[sub_resource type="Gradient" id="Gradient_hu80t"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.142012)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5rmvg"]
+gradient = SubResource("Gradient_hu80t")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Ball" type="CharacterBody2D"]
 script = ExtResource("1_m8x88")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_brrcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_5rmvg")

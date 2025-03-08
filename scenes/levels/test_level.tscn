@@ -9,19 +9,6 @@ size = Vector2(26, 26)
 
 [node name="TestLevel" instance=ExtResource("1_ftd6k")]
 
-[node name="Camera2D" type="Camera2D" parent="." index="0"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
-position = Vector2(-16, -28)
-rotation = -0.538976
-
-[node name="Icon" type="Sprite2D" parent="StaticBody2D" index="0"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_4fnhy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
-shape = SubResource("RectangleShape2D_tlosg")
-
 [node name="Icon" type="Sprite2D" parent="Ball" index="1"]
 position = Vector2(-0.422857, 0.577154)
 scale = Vector2(0.115, 0.115)
@@ -48,6 +35,24 @@ position = Vector2(-0.422857, -7.42285)
 rotation = 1.57079
 scale = Vector2(0.0246429, 0.0766667)
 texture = ExtResource("3_4fnhy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+position = Vector2(-16, -28)
+rotation = -0.538976
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" index="0"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_4fnhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+shape = SubResource("RectangleShape2D_tlosg")
+
+[node name="Tiles" parent="." index="2"]
+tile_set = null
+script = null
+
+[node name="Camera2D" parent="." index="3"]
+zoom = Vector2(1, 1)
 
 [node name="PlayerBarrier" parent="." index="4" instance=ExtResource("3_ur3ym")]
 position = Vector2(68, 10)
