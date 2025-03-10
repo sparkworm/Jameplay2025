@@ -79,3 +79,7 @@ scale = Vector2(1, 16.96)
 shape = SubResource("RectangleShape2D_6thdq")
 
 [node name="PlayerBarriers" type="Node" parent="."]
+
+[node name="BarrierDetector" type="RayCast2D" parent="."]
+target_position = Vector2(182, 216)
+hit_from_inside = true

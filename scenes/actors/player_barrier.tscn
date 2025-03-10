@@ -72,7 +72,6 @@ shader_parameter/enabled = true
 script = ExtResource("1_n8cwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_pybg4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -85,6 +84,7 @@ trail_enabled = true
 trail_lifetime = 0.1
 
 [node name="Pixel" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_gfqv0")
 position = Vector2(0, -0.137989)
 scale = Vector2(10.8893, 133.724)
