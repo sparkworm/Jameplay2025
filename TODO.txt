@@ -1,0 +1,5 @@
+Add Obstacle
+Add score system
+Add UI?
+Add levels
+Add ability to remove obstacle?
