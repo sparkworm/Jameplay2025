@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pybg4"]
 radius = 4.0
-height = 112.0
+height = 146.0
 
 [sub_resource type="Curve" id="Curve_jihqg"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.84, 0.835165), -0.5994, -0.5994, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -67,11 +67,13 @@ resource_local_to_scene = true
 shader = ExtResource("2_tjch7")
 shader_parameter/radius = 0.2
 shader_parameter/enabled = true
+shader_parameter/pixel_factor = Vector2(5, 25)
 
 [node name="PlayerBarrier" type="CharacterBody2D"]
 script = ExtResource("1_n8cwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_pybg4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -86,5 +88,5 @@ trail_lifetime = 0.1
 [node name="Pixel" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_gfqv0")
 position = Vector2(0, -0.137989)
-scale = Vector2(10.8893, 133.724)
+scale = Vector2(10, 150)
 texture = ExtResource("1_fgvfl")
