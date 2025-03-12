@@ -6,8 +6,10 @@ extends GameScene
 
 @onready var player_barriers: Node = $PlayerBarriers
 @onready var barrier_detector: RayCast2D = $BarrierDetector
+@onready var score_label: Label = %ScoreLabel
 
 var last_barrier: PlayerBarrier
+var score: float = 0.0
 
 func _process(delta:float) -> void:
 	if Input.is_action_just_pressed("place_barrier"):
@@ -19,6 +21,12 @@ func _process(delta:float) -> void:
 		last_barrier = null
 	if Input.is_action_just_pressed("destroy_barrier"):
 		destroy_barrier()
+	# update scores
+	update_score(delta)
+
+func update_score(delta: float) -> void:
+	score += player_barriers.get_child_count() * delta
+	score_label.text = str("Score: ", floor(score))
 
 func place_barrier(coords:Vector2) -> void:
 	var new_bar = barrier.instantiate() as PlayerBarrier
