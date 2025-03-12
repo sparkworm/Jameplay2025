@@ -67,7 +67,7 @@ resource_local_to_scene = true
 shader = ExtResource("2_tjch7")
 shader_parameter/radius = 0.2
 shader_parameter/enabled = true
-shader_parameter/pixel_factor = Vector2(5, 25)
+shader_parameter/pixel_factor = Vector2(7, 25)
 
 [node name="PlayerBarrier" type="CharacterBody2D"]
 script = ExtResource("1_n8cwa")
