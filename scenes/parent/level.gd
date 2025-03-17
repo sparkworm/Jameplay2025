@@ -36,6 +36,7 @@ func place_barrier(coords:Vector2) -> void:
 	player_barriers.add_child(new_bar)
 	new_bar.disable()
 	last_barrier = new_bar
+	update_barrier_scale()
 
 func destroy_barrier() -> void:
 	barrier_detector.position = get_local_mouse_position()
