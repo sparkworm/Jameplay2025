@@ -3,6 +3,7 @@ class_name Level
 extends GameScene
 
 @export var barrier: PackedScene
+@export var scale_factor: float = 50.0
 
 @onready var player_barriers: Node = $PlayerBarriers
 @onready var barrier_detector: RayCast2D = $BarrierDetector
@@ -16,6 +17,7 @@ func _process(delta:float) -> void:
 		place_barrier(get_local_mouse_position())
 	elif Input.is_action_pressed("place_barrier"):
 		update_barrier_angle()
+		update_barrier_scale()
 	if Input.is_action_just_released("place_barrier"):
 		last_barrier.enable()
 		last_barrier = null
@@ -48,3 +50,8 @@ func destroy_barrier() -> void:
 func update_barrier_angle() -> void:
 	if last_barrier:
 		last_barrier.look_at(get_local_mouse_position())
+
+func update_barrier_scale() -> void:
+	var distance = last_barrier.position.distance_to(get_local_mouse_position())
+	distance /= scale_factor
+	last_barrier.scale = Vector2(distance,distance)
