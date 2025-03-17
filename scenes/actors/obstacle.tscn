@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bti5h0ihfvtt8"]
+
+[ext_resource type="Shader" path="res://scenes/actors/obstacle.gdshader" id="1_8cndu"]
+[ext_resource type="Script" path="res://scenes/actors/obstacle.gd" id="1_ypyqx"]
+[ext_resource type="Texture2D" uid="uid://il06hvl7udon" path="res://icon.svg" id="2_g8qhv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_goaoa"]
+shader = ExtResource("1_8cndu")
+shader_parameter/speed = 4.0
+shader_parameter/dist_fact = 50.0
+shader_parameter/tunnel_fact = 0.275
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7qte"]
+size = Vector2(130, 128)
+
+[node name="Obstacle" type="StaticBody2D"]
+script = ExtResource("1_ypyqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_goaoa")
+texture = ExtResource("2_g8qhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_v7qte")

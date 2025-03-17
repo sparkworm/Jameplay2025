@@ -46,6 +46,8 @@ script = ExtResource("4_vucop")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
+[node name="Obstacles" type="Node" parent="."]
+
 [node name="WallBarriers" type="Node" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WallBarriers"]

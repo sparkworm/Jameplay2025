@@ -4,13 +4,18 @@ extends GameScene
 
 @export var barrier: PackedScene
 @export var scale_factor: float = 50.0
+@export var obstacle_penalty: float = 50
 
 @onready var player_barriers: Node = $PlayerBarriers
 @onready var barrier_detector: RayCast2D = $BarrierDetector
 @onready var score_label: Label = %ScoreLabel
+@onready var ball: Ball = $Ball
 
 var last_barrier: PlayerBarrier
 var score: float = 0.0
+
+func _ready() -> void:
+	ball.obstacle_hit.connect(Callable(self, "hit_obstacle"))
 
 func _process(delta:float) -> void:
 	if Input.is_action_just_pressed("place_barrier"):
@@ -29,6 +34,9 @@ func _process(delta:float) -> void:
 func update_score(delta: float) -> void:
 	score += player_barriers.get_child_count() * delta
 	score_label.text = str("Score: ", floor(score))
+
+func hit_obstacle() -> void:
+	score += obstacle_penalty
 
 func place_barrier(coords:Vector2) -> void:
 	var new_bar = barrier.instantiate() as PlayerBarrier
