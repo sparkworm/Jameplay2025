@@ -11,16 +11,24 @@ extends GameScene
 @onready var score_label: Label = %ScoreLabel
 @onready var ball: Ball = $Ball
 @onready var tiles: Tiles = $Tiles
+@onready var screen_fade: ColorRect = $LevelUI/LevelCompleteUI/ScreenFade
+@onready var level_complete_label: Label = $LevelUI/LevelCompleteUI/LevelCompleteLabel
+
 
 var last_barrier: PlayerBarrier
 var score: float = 0.0
 
 func _ready() -> void:
 	ball.obstacle_hit.connect(Callable(self, "hit_obstacle"))
-	tiles.tiles_cleared.connect(Callable(self, "level_end"))
+	tiles.tiles_cleared.connect(Callable(self, "exit_transition"))
 
-func level_end() -> void:
-	MessageBus.change_scene.emit(Scenes.level_after(scene_name))
+func exit_transition() -> void:
+	level_complete_label.text = str("Level complete!\nScore: ", floor(score))
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(screen_fade, "color", Color(0,0,0,1), 1)
+	tween.tween_callback(Callable(level_complete_label, "show"))
+	tween.tween_interval(5.0)
+	tween.tween_callback(Callable(self, "to_next_level"))
 
 func _process(delta:float) -> void:
 	if Input.is_action_just_pressed("place_barrier"):

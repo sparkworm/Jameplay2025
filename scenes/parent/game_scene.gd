@@ -12,8 +12,12 @@ func enter_transition() -> void:
 	pass
 
 ## Creates exit fade or other effects, then calls a transition to the next level
-func exit_transition(next_level: Scenes.ID) -> void:
-	MessageBus.change_scene.emit(next_level)
+func exit_transition() -> void:
+	to_next_level()
+
+func to_next_level() -> void:
+	MessageBus.change_scene.emit(Scenes.level_after(scene_name))
+
 
 func reload_scene() -> void:
 	MessageBus.change_scene.emit(scene_name)
