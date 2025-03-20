@@ -1,6 +1,8 @@
 class_name Tiles
 extends TileMapLayer
 
+signal tiles_cleared()
+
 var tile_levels: Array = [
 		Vector2i(0,0),
 		Vector2i(1,0),
@@ -17,5 +19,7 @@ func demote_tile(coords:Vector2i) -> void:
 		return
 	if level == 0:
 		erase_cell(coords)
+		if get_used_cells().size() == 0:
+			tiles_cleared.emit()
 		return
 	set_cell(coords, 0, tile_levels[level-1])

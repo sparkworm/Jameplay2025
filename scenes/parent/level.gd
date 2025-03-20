@@ -10,12 +10,17 @@ extends GameScene
 @onready var barrier_detector: RayCast2D = $BarrierDetector
 @onready var score_label: Label = %ScoreLabel
 @onready var ball: Ball = $Ball
+@onready var tiles: Tiles = $Tiles
 
 var last_barrier: PlayerBarrier
 var score: float = 0.0
 
 func _ready() -> void:
 	ball.obstacle_hit.connect(Callable(self, "hit_obstacle"))
+	tiles.tiles_cleared.connect(Callable(self, "level_end"))
+
+func level_end() -> void:
+	MessageBus.change_scene.emit(Scenes.level_after(scene_name))
 
 func _process(delta:float) -> void:
 	if Input.is_action_just_pressed("place_barrier"):
@@ -32,7 +37,7 @@ func _process(delta:float) -> void:
 	update_score(delta)
 
 func update_score(delta: float) -> void:
-	score += player_barriers.get_child_count() * delta
+	score += (player_barriers.get_child_count() + 1) * delta
 	score_label.text = str("Score: ", floor(score))
 
 func hit_obstacle() -> void:
