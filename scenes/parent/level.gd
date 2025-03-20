@@ -28,7 +28,7 @@ func _process(delta:float) -> void:
 	elif Input.is_action_pressed("place_barrier"):
 		update_barrier_angle()
 		update_barrier_scale()
-	if Input.is_action_just_released("place_barrier"):
+	if Input.is_action_just_released("place_barrier") and last_barrier:
 		last_barrier.enable()
 		last_barrier = null
 	if Input.is_action_just_pressed("destroy_barrier"):
@@ -56,7 +56,6 @@ func destroy_barrier() -> void:
 	barrier_detector.target_position = Vector2(0,0)
 	barrier_detector.force_raycast_update()
 	var barrier_col = barrier_detector.get_collider()
-	print(barrier_col)
 	barrier_col = barrier_col as PlayerBarrier
 	if barrier_col:
 		barrier_col.queue_free()

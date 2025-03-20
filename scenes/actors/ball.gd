@@ -33,4 +33,3 @@ func hit_tile(col: KinematicCollision2D) -> void:
 func hit_obstacle(col: KinematicCollision2D) -> void:
 	if col.get_collider() is Obstacle:
 		obstacle_hit.emit()
-		print("hit obstacle")
