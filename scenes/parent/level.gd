@@ -28,7 +28,7 @@ func _process(delta:float) -> void:
 	elif Input.is_action_pressed("place_barrier"):
 		update_barrier_angle()
 		update_barrier_scale()
-	if Input.is_action_just_released("place_barrier"):
+	if Input.is_action_just_released("place_barrier") and last_barrier:
 		last_barrier.enable()
 		last_barrier = null
 	if Input.is_action_just_pressed("destroy_barrier"):
