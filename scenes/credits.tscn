@@ -1,6 +1,46 @@
 [gd_scene load_steps=2 format=3 uid="uid://54qi8qibrwdu"]
 
-[ext_resource type="Script" path="res://scenes/parent/game_scene.gd" id="1_3wubu"]
+[ext_resource type="Script" path="res://scenes/credits.gd" id="1_dpkka"]
 
 [node name="Credits" type="Node2D"]
-script = ExtResource("1_3wubu")
+script = ExtResource("1_dpkka")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 2
+offset_left = 350.5
+offset_top = 208.5
+offset_right = 801.5
+offset_bottom = 439.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Complete!
+
+Programming: David Clutter
+Idea and design: Members of Programming Club, including
+Alex D.
+Stephanie P.
+William R.
+Eli S.
+Raigen W."
+horizontal_alignment = 1
