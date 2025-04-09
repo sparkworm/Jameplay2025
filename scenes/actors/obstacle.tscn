@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bti5h0ihfvtt8"]
 
-[ext_resource type="Shader" path="res://scenes/actors/obstacle.gdshader" id="1_8cndu"]
-[ext_resource type="Script" path="res://scenes/actors/obstacle.gd" id="1_ypyqx"]
+[ext_resource type="Shader" uid="uid://7n3b2iu6x8xb" path="res://scenes/actors/obstacle.gdshader" id="1_8cndu"]
+[ext_resource type="Script" uid="uid://cgkmpie5hupdl" path="res://scenes/actors/obstacle.gd" id="1_ypyqx"]
 [ext_resource type="Texture2D" uid="uid://il06hvl7udon" path="res://icon.svg" id="2_g8qhv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_goaoa"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://ckmux2bssru4s"]
 
 [ext_resource type="Texture2D" uid="uid://b5iqxxgcqj7rd" path="res://visuals/particles/pixel.png" id="1_fgvfl"]
-[ext_resource type="Script" path="res://scenes/actors/player_barrier.gd" id="1_n8cwa"]
-[ext_resource type="Shader" path="res://visuals/shaders/player_barrier.gdshader" id="2_tjch7"]
+[ext_resource type="Script" uid="uid://djjd00n687iwj" path="res://scenes/actors/player_barrier.gd" id="1_n8cwa"]
+[ext_resource type="Shader" uid="uid://bo18naojlynv8" path="res://visuals/shaders/player_barrier.gdshader" id="2_tjch7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pybg4"]
 radius = 4.0
@@ -16,7 +16,7 @@ point_count = 3
 curve = SubResource("Curve_jihqg")
 
 [sub_resource type="Curve" id="Curve_4tida"]
-max_value = 1000.0
+_limits = [0.0, 1000.0, 0.0, 1.0]
 _data = [Vector2(0, 197.802), 0.0, 0.0, 0, 0, Vector2(0.818182, 131.868), -40.2931, -40.2931, 0, 0, Vector2(1, 0), -442.241, 0.0, 0, 0]
 point_count = 3
 

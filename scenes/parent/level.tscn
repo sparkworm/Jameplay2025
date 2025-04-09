@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://pctjl8fyl8tl"]
 
-[ext_resource type="Script" path="res://scenes/parent/level.gd" id="1_8rtop"]
+[ext_resource type="Script" uid="uid://bffc2ub83kd0r" path="res://scenes/parent/level.gd" id="1_8rtop"]
 [ext_resource type="PackedScene" uid="uid://81jofg5uucy4" path="res://scenes/actors/ball.tscn" id="2_kc4jg"]
 [ext_resource type="PackedScene" uid="uid://ckmux2bssru4s" path="res://scenes/actors/player_barrier.tscn" id="2_ylqw7"]
 [ext_resource type="Texture2D" uid="uid://duhvq1vl862c5" path="res://visuals/tliemaps/tiles.png" id="3_ssw8j"]
-[ext_resource type="Script" path="res://scenes/actors/tiles.gd" id="4_vucop"]
+[ext_resource type="Script" uid="uid://de8tc57ng1obi" path="res://scenes/actors/tiles.gd" id="4_vucop"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1dqq"]
 texture = ExtResource("3_ssw8j")
